@@ -146,11 +146,13 @@ function generateCards(){
 
             card.innerHTML = reason;
 
-        if(index === 21){
+       if(index === 21){
+
+    card.style.gridColumn = "span 2";
 
     card.innerHTML = `
 
-    <h3>Reason #22</h3>
+    <h2>Reason #22</h2>
 
     <br>
 
@@ -168,20 +170,28 @@ function generateCards(){
 
     Happy Birthday Asaaly ❤️
 
-    <br><br>
-
-    <button onclick="showSecretEnding()">
-
-        One Last Thing →
-
-    </button>
-
     `;
 
+    if(!document.getElementById("finalButton")){
+
+        const finalButton =
+        document.createElement("button");
+
+        finalButton.id = "finalButton";
+
+        finalButton.innerHTML =
+        "🎁 One Last Thing →";
+
+        finalButton.onclick =
+        showSecretEnding;
+
+        document
+        .getElementById("cards-container")
+        .appendChild(finalButton);
+
+    }
+
 }
-
-        });
-
         container.appendChild(card);
 
     });
