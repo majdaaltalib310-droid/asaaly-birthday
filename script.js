@@ -1,5 +1,3 @@
-alert("NEW SCRIPT LOADED");
-
 let currentScene = 0;
 
 const scenes = document.querySelectorAll(".scene");
