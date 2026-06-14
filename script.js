@@ -227,7 +227,6 @@ document.getElementById("scene-container").innerHTML = `
 
 <section class="scene active photo-scene">
 
-```
 <img src="photos/IMG_coming_home_to_this.jpg">
 
 <h2>Psst... One Last Thing</h2>
@@ -257,10 +256,7 @@ document.getElementById("scene-container").innerHTML = `
     Majd ❤️
 
  </p>
-```
 
 </section>
-
-`;
 
 }
