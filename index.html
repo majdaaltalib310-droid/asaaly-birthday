@@ -11,7 +11,7 @@
     <source src="music/musicread-my-mind.mp3" type="audio/mpeg">
 </audio>
 
-<div id="musicControls">
+<div id="musicControls" style="display:none;">
 
     <button onclick="toggleMusic()">⏸ Pause</button>
 
@@ -46,15 +46,9 @@
     <section class="scene">
         <h2>Every good story deserves a soundtrack.</h2>
 
-        <a class="spotify-btn"
-           href="PASTE_SPOTIFY_LINK_HERE"
-           target="_blank">
-           🎵 Start The Soundtrack
-        </a>
-
-        <br><br>
-
-        <button onclick="nextScene()">Continue →</button>
+      <button onclick="startMusicAndContinue()">
+    🎵 Start The Soundtrack
+</button>
     </section>
 
     <!-- First Meeting -->
@@ -153,8 +147,13 @@
 
     <!-- Romantic Moment -->
     <section class="scene photo-scene">
-        <img src="photos/IMG_romantic_Moment.jpg">
-        <img src="photos/IMG_romantic_moment2.jpg">
+      <div class="dual-photo">
+
+    <img src="photos/IMG_romantic_Moment.jpg">
+
+    <img src="photos/IMG_romantic_moment2.jpg">
+
+</div>
         <h2>My Favorite Scene</h2>
         <p>
             If I ever had to explain what being happy looks like...<br><br>
@@ -162,7 +161,32 @@
         </p>
         <button onclick="nextScene()">Continue →</button>
     </section>
+<!-- Sexy Moments -->
+<section class="scene photo-scene">
 
+    <img src="photos/IMG_sexy_moments.jpg">
+
+    <h2>I Won</h2>
+
+    <p>
+        Every time I look at this photo.
+
+        <br><br>
+
+        I remember exactly how lucky I am.
+
+        <br><br>
+
+        And honestly?
+
+        <br><br>
+
+        I'd choose you every single time.
+    </p>
+
+    <button onclick="nextScene()">Continue →</button>
+
+</section>
     <!-- Cheek Kiss -->
     <section class="scene photo-scene">
         <img src="photos/IMG_cute_cheek_kiss.jpg">
