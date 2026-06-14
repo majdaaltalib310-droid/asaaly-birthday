@@ -4,256 +4,248 @@ const scenes = document.querySelectorAll(".scene");
 const audio = document.getElementById("bgMusic");
 
 if (audio) {
-audio.volume = 0.25;
+    audio.volume = 0.25;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
 
-const allScenes = document.querySelectorAll(".scene");
+    const allScenes = document.querySelectorAll(".scene");
 
-allScenes.forEach((scene, index) => {
+    allScenes.forEach((scene, index) => {
 
-    if (index === 0) return;
+        if (index === 0) return;
 
-    const backBtn = document.createElement("button");
+        const backBtn = document.createElement("button");
 
-    backBtn.innerHTML = "← Back";
+        backBtn.innerHTML = "← Back";
 
-    backBtn.onclick = previousScene;
+        backBtn.onclick = previousScene;
 
-    const firstButton = scene.querySelector("button");
+        const firstButton = scene.querySelector("button");
 
-    if (firstButton) {
-        scene.insertBefore(backBtn, firstButton);
-    }
+        if (firstButton) {
+            scene.insertBefore(backBtn, firstButton);
+        }
 
-});
+    });
 
 });
 
 function previousScene() {
 
-if (currentScene === 0) return;
+    if (currentScene === 0) return;
 
-scenes[currentScene].classList.remove("active");
+    scenes[currentScene].classList.remove("active");
 
-currentScene--;
+    currentScene--;
 
-scenes[currentScene].classList.add("active");
+    scenes[currentScene].classList.add("active");
 
 }
 
 function nextScene() {
 
-scenes[currentScene].classList.remove("active");
+    scenes[currentScene].classList.remove("active");
 
-currentScene++;
+    currentScene++;
 
-if (currentScene >= scenes.length) {
-    currentScene = scenes.length - 1;
-}
+    if (currentScene >= scenes.length) {
+        currentScene = scenes.length - 1;
+    }
 
-scenes[currentScene].classList.add("active");
+    scenes[currentScene].classList.add("active");
 
-if (currentScene === scenes.length - 1) {
-    generateCards();
-}
+    if (currentScene === scenes.length - 1) {
+        generateCards();
+    }
 
 }
 
 function startMusicAndContinue() {
 
-if (audio) {
-    audio.play();
-}
+    if (audio) {
+        audio.play();
+    }
 
-const controls = document.getElementById("musicControls");
+    const controls = document.getElementById("musicControls");
 
-if (controls) {
-    controls.style.display = "flex";
-}
+    if (controls) {
+        controls.style.display = "flex";
+    }
 
-nextScene();
+    nextScene();
 
 }
 
 function toggleMusic() {
 
-if (!audio) return;
+    if (!audio) return;
 
-if (audio.paused) {
-    audio.play();
-} else {
-    audio.pause();
-}
+    if (audio.paused) {
+        audio.play();
+    } else {
+        audio.pause();
+    }
 
 }
 
 function volumeUp() {
 
-if (!audio) return;
+    if (!audio) return;
 
-audio.volume = Math.min(audio.volume + 0.1, 1);
+    audio.volume = Math.min(audio.volume + 0.1, 1);
 
 }
 
 function volumeDown() {
 
-if (!audio) return;
+    if (!audio) return;
 
-audio.volume = Math.max(audio.volume - 0.1, 0);
+    audio.volume = Math.max(audio.volume - 0.1, 0);
 
 }
 
 const reasons = [
-"Your smile. It fixes bad days faster than it should.",
-"You're my best friend. Even when you're being annoying.",
-"You make ordinary days feel important.",
-"You're ridiculously pretty. It's honestly getting out of hand.",
-"You support me when I don't even know I need it.",
-"You somehow make me want to be better.",
-"You make me laugh and drive me insane in the same conversation.",
-"You make every place feel like home.",
-"Your voice calms me down.",
-"You're beautiful even when you don't realize it.",
-"The way you look into my eyes. Sometimes I genuinely forget what I was about to say.",
-"Because you call me Majoody. Nobody else gets away with that.",
-"How positive you are. You make difficult days feel a little less difficult.",
-"How safe I feel in your arms.",
-"The way you show me off.",
-"How cute you look when you're mad.",
-"How obsessed you are with your hair.",
-"The way you drink water.",
-"Your nose. Seriously. It's perfect.",
-"The way your nose-breath smells.",
-"Your thighs. I'm choosing not to elaborate.",
-"Because you're you. That's it. That's the reason. ❤️"
+    "Your smile. It fixes bad days faster than it should.",
+    "You're my best friend. Even when you're being annoying.",
+    "You make ordinary days feel important.",
+    "You're ridiculously pretty. It's honestly getting out of hand.",
+    "You support me when I don't even know I need it.",
+    "You somehow make me want to be better.",
+    "You make me laugh and drive me insane in the same conversation.",
+    "You make every place feel like home.",
+    "Your voice calms me down.",
+    "You're beautiful even when you don't realize it.",
+    "The way you look into my eyes. Sometimes I genuinely forget what I was about to say.",
+    "Because you call me Majoody. Nobody else gets away with that.",
+    "How positive you are. You make difficult days feel a little less difficult.",
+    "How safe I feel in your arms.",
+    "The way you show me off.",
+    "How cute you look when you're mad.",
+    "How obsessed you are with your hair.",
+    "The way you drink water.",
+    "Your nose. Seriously. It's perfect.",
+    "The way your nose-breath smells.",
+    "Your thighs. I'm choosing not to elaborate.",
+    "Because you're you. That's it. That's the reason. ❤️"
 ];
 
 let cardsGenerated = false;
 
 function generateCards() {
 
-if (cardsGenerated) return;
+    if (cardsGenerated) return;
 
-cardsGenerated = true;
+    cardsGenerated = true;
 
-const container = document.getElementById("cards-container");
+    const container = document.getElementById("cards-container");
 
-if (!container) return;
+    if (!container) return;
 
-reasons.forEach((reason, index) => {
+    reasons.forEach((reason, index) => {
 
-    const card = document.createElement("div");
+        const card = document.createElement("div");
 
-    card.classList.add("card");
+        card.classList.add("card");
 
-    if (index === 21) {
-        card.classList.add("special-card");
-    }
+        if (index === 21) {
+            card.classList.add("special-card");
+        }
 
-    card.innerHTML =
-        `<strong>Reason #${index + 1}</strong><br><br>Click to reveal`;
+        card.innerHTML =
+            `<strong>Reason #${index + 1}</strong><br><br>Click to reveal`;
 
-    card.addEventListener("click", () => {
+        card.addEventListener("click", () => {
 
-        if (card.classList.contains("revealed")) return;
+            if (card.classList.contains("revealed")) return;
 
-       card.classList.add("revealed");
+            card.classList.add("revealed");
 
-if (index === 21) {
+            if (index === 21) {
 
-    card.innerHTML = `
-<div style="width:100%; text-align:center;">
-    <h2>Reason #22</h2>
+                card.innerHTML = `
+                    Because you're you.
+                    <br><br>
+                    That's it.
+                    <br><br>
+                    That's the reason.
+                    <br><br>
+                    Happy Birthday Asaaly ❤️
+                `;
 
-    <p>
-        Because you're you.
-        <br><br>
-        That's it.
-        <br><br>
-        That's the reason.
-        <br><br>
-        Happy Birthday Asaaly ❤️
-    </p>
-</div>
-`;
+                if (!document.getElementById("finalButton")) {
 
-            if (!document.getElementById("finalButton")) {
+                    const finalButton = document.createElement("button");
 
-                const finalButton =
-                document.createElement("button");
+                    finalButton.id = "finalButton";
 
-                finalButton.id =
-                "finalButton";
+                    finalButton.innerHTML =
+                    "🎁 One Last Thing →";
 
-                finalButton.innerHTML =
-                "🎁 One Last Thing →";
+                    finalButton.onclick =
+                    showSecretEnding;
 
-                finalButton.onclick =
-                showSecretEnding;
+                    container.appendChild(finalButton);
 
-                container.appendChild(finalButton);
+                }
+
+            } else {
+
+                card.innerHTML = reason;
 
             }
 
-        } else {
+        });
 
-            card.innerHTML = reason;
-
-        }
+        container.appendChild(card);
 
     });
-
-    container.appendChild(card);
-
-});
 
 }
 
 function showSecretEnding() {
 
-const container =
-document.getElementById("scene-container");
+    const container =
+    document.getElementById("scene-container");
 
-if (!container) return;
+    if (!container) return;
 
-container.innerHTML = `
+    container.innerHTML = `
 
-<section class="scene active photo-scene">
+    <section class="scene active photo-scene">
 
-    <img src="photos/IMG_coming_home_to_this.jpg">
+        <img src="photos/IMG_coming_home_to_this.jpg">
 
-    <h2>Psst... One Last Thing</h2>
+        <h2>Psst... One Last Thing</h2>
 
-    <p>
+        <p>
 
-        Can't wait for you to have to come home to this every day.
+            Can't wait for you to have to come home to this every day.
 
-        <br><br>
+            <br><br>
 
-        You've been warned.
+            You've been warned.
 
-        <br><br>
+            <br><br>
 
-        Happy 22nd Birthday,
+            Happy 22nd Birthday,
 
-        <br><br>
+            <br><br>
 
-        my prettiest girl in the world.
+            my prettiest girl in the world.
 
-        <br><br>
+            <br><br>
 
-        Love,
+            Love,
 
-        <br><br>
+            <br><br>
 
-        Majd ❤️
+            Majd ❤️
 
-    </p>
+        </p>
 
-</section>
+    </section>
 
-`;
+    `;
 
 }
