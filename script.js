@@ -1,48 +1,39 @@
-alert("SCRIPT LOADED");
 let currentScene = 0;
 
 const scenes = document.querySelectorAll(".scene");
 const audio = document.getElementById("bgMusic");
 
-if(audio){
+if (audio) {
 audio.volume = 0.25;
 }
 
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
-const allScenes =
-document.querySelectorAll(".scene");
+const allScenes = document.querySelectorAll(".scene");
 
-allScenes.forEach((scene,index)=>{
+allScenes.forEach((scene, index) => {
 
-    if(index === 0) return;
+    if (index === 0) return;
 
-    const backBtn =
-    document.createElement("button");
+    const backBtn = document.createElement("button");
 
     backBtn.innerHTML = "← Back";
 
     backBtn.onclick = previousScene;
 
-    const firstButton =
-    scene.querySelector("button");
+    const firstButton = scene.querySelector("button");
 
-    if(firstButton){
-
-        scene.insertBefore(
-            backBtn,
-            firstButton
-        );
-
+    if (firstButton) {
+        scene.insertBefore(backBtn, firstButton);
     }
 
 });
 
 });
 
-function previousScene(){
+function previousScene() {
 
-if(currentScene === 0) return;
+if (currentScene === 0) return;
 
 scenes[currentScene].classList.remove("active");
 
@@ -52,21 +43,65 @@ scenes[currentScene].classList.add("active");
 
 }
 
-function nextScene(){
+function nextScene() {
 
 scenes[currentScene].classList.remove("active");
 
 currentScene++;
 
-if(currentScene >= scenes.length){
+if (currentScene >= scenes.length) {
     currentScene = scenes.length - 1;
 }
 
 scenes[currentScene].classList.add("active");
 
-if(currentScene === scenes.length - 1){
+if (currentScene === scenes.length - 1) {
     generateCards();
 }
+
+}
+
+function startMusicAndContinue() {
+
+if (audio) {
+    audio.play();
+}
+
+const controls = document.getElementById("musicControls");
+
+if (controls) {
+    controls.style.display = "flex";
+}
+
+nextScene();
+
+}
+
+function toggleMusic() {
+
+if (!audio) return;
+
+if (audio.paused) {
+    audio.play();
+} else {
+    audio.pause();
+}
+
+}
+
+function volumeUp() {
+
+if (!audio) return;
+
+audio.volume = Math.min(audio.volume + 0.1, 1);
+
+}
+
+function volumeDown() {
+
+if (!audio) return;
+
+audio.volume = Math.max(audio.volume - 0.1, 0);
 
 }
 
@@ -99,133 +134,74 @@ const reasons = [
 
 let cardsGenerated = false;
 
-function generateCards(){
+function generateCards() {
 
-if(cardsGenerated) return;
+if (cardsGenerated) return;
 
 cardsGenerated = true;
 
-const container =
-document.getElementById("cards-container");
+const container = document.getElementById("cards-container");
 
-reasons.forEach((reason,index)=>{
+if (!container) return;
 
-const card =
-document.createElement("div");
+reasons.forEach((reason, index) => {
 
-card.classList.add("card");
+    const card = document.createElement("div");
 
-if(index === 21){
-    card.classList.add("special-card");
-}
+    card.classList.add("card");
 
-card.innerHTML =
-`<strong>Reason #${index+1}</strong><br><br>Click to reveal`;
-
-card.addEventListener("click",()=>{
-
-    if(card.classList.contains("revealed"))
-        return;
-
-    card.classList.add("revealed");
-
-    if(index === 21){
-
-        card.innerHTML = `
-
-        <h2>Reason #22</h2>
-
-        <br>
-
-        Because you're you.
-
-        <br><br>
-
-        That's it.
-
-        <br><br>
-
-        That's the reason.
-
-        <br><br>
-
-        Happy Birthday Asaaly ❤️
-
-        <br><br>
-
-        <button onclick="showSecretEnding()">
-
-            🎁 One Last Thing →
-
-        </button>
-
-        `;
-
-    }else{
-
-        card.innerHTML = reason;
-
+    if (index === 21) {
+        card.classList.add("special-card");
     }
 
+    card.innerHTML =
+        `<strong>Reason #${index + 1}</strong><br><br>Click to reveal`;
+
+    card.addEventListener("click", () => {
+
+        if (card.classList.contains("revealed")) return;
+
+        card.classList.add("revealed");
+
+        if (index === 21) {
+
+            card.innerHTML = `
+                <h2>Reason #22</h2>
+                <br>
+                Because you're you.
+                <br><br>
+                That's it.
+                <br><br>
+                That's the reason.
+                <br><br>
+                Happy Birthday Asaaly ❤️
+                <br><br>
+                <button onclick="showSecretEnding()">
+                    🎁 One Last Thing →
+                </button>
+            `;
+
+        } else {
+
+            card.innerHTML = reason;
+
+        }
+
+    });
+
+    container.appendChild(card);
+
 });
 
-container.appendChild(card);
-
-});
 }
 
+function showSecretEnding() {
 
-function startMusicAndContinue(){
+const container = document.getElementById("scene-container");
 
-if(audio){
-    audio.play();
-}
+if (!container) return;
 
-document.getElementById("musicControls")
-.style.display = "flex";
-
-nextScene();
-
-}
-
-function toggleMusic(){
-
-if(!audio) return;
-
-if(audio.paused){
-
-    audio.play();
-
-}else{
-
-    audio.pause();
-
-}
-
-}
-
-function volumeUp(){
-
-if(!audio) return;
-
-audio.volume =
-Math.min(audio.volume + 0.1,1);
-
-}
-
-function volumeDown(){
-
-if(!audio) return;
-
-audio.volume =
-Math.max(audio.volume - 0.1,0);
-
-}
-
-function showSecretEnding(){
-
-    document.getElementById("scene-container").innerHTML = `
-
+container.innerHTML = `
     <section class="scene active photo-scene">
 
         <img src="photos/IMG_coming_home_to_this.jpg">
@@ -259,7 +235,6 @@ function showSecretEnding(){
         </p>
 
     </section>
-
-    `;
+`;
 
 }
