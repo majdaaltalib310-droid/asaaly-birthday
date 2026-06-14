@@ -7,7 +7,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <audio id="bgMusic" loop>
+    <source src="music/musicread-my-mind.mp3" type="audio/mpeg">
+</audio>
 
+<div id="musicControls">
+
+    <button onclick="toggleMusic()">⏸ Pause</button>
+
+    <button onclick="volumeDown()">🔉</button>
+
+    <button onclick="volumeUp()">🔊</button>
+
+</div>
 <div id="scene-container">
 
     <!-- Scene 1 -->
