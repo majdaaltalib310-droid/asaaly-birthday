@@ -83,23 +83,21 @@ function toggleMusic() {
     if (!audio) return;
 
     const button =
-    document.querySelector('#musicControls button');
+    document.querySelector("#musicControls button");
+
+    if (!button) return;
 
     if (audio.paused) {
 
         audio.play();
 
-        if(button){
-            button.innerHTML = "⏸ Pause";
-        }
+        button.textContent = "Pause";
 
     } else {
 
         audio.pause();
 
-        if(button){
-            button.innerHTML = "▶ Play";
-        }
+        button.textContent = "Play";
 
     }
 
