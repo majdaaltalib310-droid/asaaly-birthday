@@ -78,19 +78,32 @@ function startMusicAndContinue() {
     nextScene();
 
 }
-
 function toggleMusic() {
 
     if (!audio) return;
 
+    const button =
+    document.querySelector('#musicControls button');
+
     if (audio.paused) {
+
         audio.play();
+
+        if(button){
+            button.innerHTML = "⏸ Pause";
+        }
+
     } else {
+
         audio.pause();
+
+        if(button){
+            button.innerHTML = "▶ Play";
+        }
+
     }
 
 }
-
 function volumeUp() {
 
     if (!audio) return;
