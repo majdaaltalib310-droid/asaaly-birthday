@@ -159,10 +159,25 @@ reasons.forEach((reason, index) => {
 
         if (card.classList.contains("revealed")) return;
 
-        card.classList.add("revealed");
+       card.classList.add("revealed");
 
- card.innerHTML = `
+if (index === 21) {
+
+    card.innerHTML = `
 <div style="width:100%; text-align:center;">
+    <h2>Reason #22</h2>
+
+    <p>
+        Because you're you.
+        <br><br>
+        That's it.
+        <br><br>
+        That's the reason.
+        <br><br>
+        Happy Birthday Asaaly ❤️
+    </p>
+</div>
+`;
     <h2>Reason #22</h2>
 
     <p>
