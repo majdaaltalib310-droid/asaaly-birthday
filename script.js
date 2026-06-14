@@ -1,113 +1,103 @@
 let currentScene = 0;
 
 const scenes = document.querySelectorAll(".scene");
+const audio = document.getElementById("bgMusic");
+
+if(audio){
+audio.volume = 0.25;
+}
+
 document.addEventListener("DOMContentLoaded",()=>{
 
-    const allScenes =
-    document.querySelectorAll(".scene");
+```
+const allScenes =
+document.querySelectorAll(".scene");
 
-    allScenes.forEach((scene,index)=>{
+allScenes.forEach((scene,index)=>{
 
-        if(index === 0) return;
+    if(index === 0) return;
 
-        const backBtn =
-        document.createElement("button");
+    const backBtn =
+    document.createElement("button");
 
-        backBtn.innerHTML = "← Back";
+    backBtn.innerHTML = "← Back";
 
-        backBtn.onclick = previousScene;
+    backBtn.onclick = previousScene;
 
-        const firstButton =
-        scene.querySelector("button");
+    const firstButton =
+    scene.querySelector("button");
 
-        if(firstButton){
+    if(firstButton){
 
-            scene.insertBefore(
-                backBtn,
-                firstButton
-            );
+        scene.insertBefore(
+            backBtn,
+            firstButton
+        );
 
-        }
-
-    });
+    }
 
 });
-const audio =
-document.getElementById("bgMusic");
+```
 
-audio.volume = 0.25;
-function previousScene() {
+});
 
-    if(currentScene === 0) return;
+function previousScene(){
 
-    scenes[currentScene].classList.remove("active");
+```
+if(currentScene === 0) return;
 
-    currentScene--;
+scenes[currentScene].classList.remove("active");
 
-    scenes[currentScene].classList.add("active");
+currentScene--;
+
+scenes[currentScene].classList.add("active");
+```
 
 }
-function nextScene() {
 
-    scenes[currentScene].classList.remove("active");
+function nextScene(){
 
-    currentScene++;
+```
+scenes[currentScene].classList.remove("active");
 
-    if(currentScene >= scenes.length){
-        currentScene = scenes.length - 1;
-    }
+currentScene++;
 
-    scenes[currentScene].classList.add("active");
+if(currentScene >= scenes.length){
+    currentScene = scenes.length - 1;
+}
 
-    if(currentScene === scenes.length - 1){
-        generateCards();
-    }
+scenes[currentScene].classList.add("active");
+
+if(currentScene === scenes.length - 1){
+    generateCards();
+}
+```
+
 }
 
 const reasons = [
 
 "Your smile. It fixes bad days faster than it should.",
-
 "You're my best friend. Even when you're being annoying.",
-
 "You make ordinary days feel important.",
-
 "You're ridiculously pretty. It's honestly getting out of hand.",
-
 "You support me when I don't even know I need it.",
-
 "You somehow make me want to be better.",
-
 "You make me laugh and drive me insane in the same conversation.",
-
 "You make every place feel like home.",
-
 "Your voice calms me down.",
-
 "You're beautiful even when you don't realize it.",
-
 "The way you look into my eyes. Sometimes I genuinely forget what I was about to say.",
-
 "Because you call me Majoody. Nobody else gets away with that.",
-
 "How positive you are. You make difficult days feel a little less difficult.",
-
-"How safe I feel in your arms. Which is weird because I'm supposed to be the protective one.",
-
-"The way you show me off. You have no idea how much that means to me.",
-
-"How cute you look when you're mad. I'm sorry. I know that's not the reaction you're looking for.",
-
-"How obsessed you are with your hair. And somehow it still takes me by surprise every time.",
-
-"The way you drink water. I can't explain this one. Just trust me.",
-
-"Your nose. Seriously. It's so perfect it should probably be studied by science.",
-
-"The way your nose-breath smells. This card is proof that love makes people weird.",
-
-"Your thighs. I'm choosing not to elaborate for legal reasons.",
-
+"How safe I feel in your arms.",
+"The way you show me off.",
+"How cute you look when you're mad.",
+"How obsessed you are with your hair.",
+"The way you drink water.",
+"Your nose. Seriously. It's perfect.",
+"The way your nose-breath smells.",
+"Your thighs. I'm choosing not to elaborate.",
 "Because you're you. That's it. That's the reason. ❤️"
 
 ];
@@ -147,8 +137,6 @@ reasons.forEach((reason,index)=>{
 
         if(index === 21){
 
-            card.style.gridColumn = "span 2";
-
             card.innerHTML = `
 
             <h2>Reason #22</h2>
@@ -169,26 +157,15 @@ reasons.forEach((reason,index)=>{
 
             Happy Birthday Asaaly ❤️
 
+            <br><br>
+
+            <button onclick="showSecretEnding()">
+
+                🎁 One Last Thing →
+
+            </button>
+
             `;
-
-            if(!document.getElementById("finalButton")){
-
-                const finalButton =
-                document.createElement("button");
-
-                finalButton.id = "finalButton";
-
-                finalButton.innerHTML =
-                "🎁 One Last Thing →";
-
-                finalButton.onclick =
-                showSecretEnding;
-
-                document
-                .getElementById("cards-container")
-                .appendChild(finalButton);
-
-            }
 
         }else{
 
@@ -207,80 +184,99 @@ reasons.forEach((reason,index)=>{
 
 function startMusicAndContinue(){
 
+```
+if(audio){
     audio.play();
+}
 
-    document.getElementById("musicControls")
-    .style.display = "flex";
+document.getElementById("musicControls")
+.style.display = "flex";
 
-    nextScene();
+nextScene();
+```
 
 }
 
 function toggleMusic(){
 
-    if(audio.paused){
+```
+if(!audio) return;
 
-        audio.play();
+if(audio.paused){
 
-    }else{
+    audio.play();
 
-        audio.pause();
+}else{
 
-    }
+    audio.pause();
+
+}
+```
 
 }
 
 function volumeUp(){
 
-    audio.volume =
-    Math.min(audio.volume + 0.1,1);
+```
+if(!audio) return;
+
+audio.volume =
+Math.min(audio.volume + 0.1,1);
+```
 
 }
 
 function volumeDown(){
 
-    audio.volume =
-    Math.max(audio.volume - 0.1,0);
+```
+if(!audio) return;
+
+audio.volume =
+Math.max(audio.volume - 0.1,0);
+```
 
 }
+
 function showSecretEnding(){
 
-    document.body.innerHTML = `
+```
+document.getElementById("scene-container").innerHTML = `
 
-    <section class="scene active photo-scene">
+<section class="scene active photo-scene">
 
-        <img src="photos/IMG_coming_home_to_this.jpg">
+    <img src="photos/IMG_coming_home_to_this.jpg">
 
-        <h2>Psst... One Last Thing</h2>
+    <h2>Psst... One Last Thing</h2>
 
-        <p>
+    <p>
 
-            Can't wait for you to have to come home to this every day.
+        Can't wait for you to have to come home to this every day.
 
-            <br><br>
+        <br><br>
 
-            You've been warned.
+        You've been warned.
 
-            <br><br>
+        <br><br>
 
-            Love,
+        Happy 22nd Birthday,
 
-            <br><br>
+        <br><br>
 
-            Majoody ❤️
+        my prettiest girl in the world.
 
-            <br><br>
+        <br><br>
 
-            End of story.
+        Love,
 
-            <br><br>
+        <br><br>
 
-            For now.
+        Majoody ❤️
 
-        </p>
+    </p>
 
-    </section>
+</section>
 
-    `;
+`;
+```
 
 }
