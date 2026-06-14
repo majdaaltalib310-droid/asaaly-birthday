@@ -259,4 +259,7 @@ document.getElementById("scene-container").innerHTML = `
 
 </section>
 
+`;
+
 }
+
