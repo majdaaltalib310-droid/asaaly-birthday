@@ -106,7 +106,6 @@ audio.volume = Math.max(audio.volume - 0.1, 0);
 }
 
 const reasons = [
-
 "Your smile. It fixes bad days faster than it should.",
 "You're my best friend. Even when you're being annoying.",
 "You make ordinary days feel important.",
@@ -129,7 +128,6 @@ const reasons = [
 "The way your nose-breath smells.",
 "Your thighs. I'm choosing not to elaborate.",
 "Because you're you. That's it. That's the reason. ❤️"
-
 ];
 
 let cardsGenerated = false;
@@ -163,40 +161,39 @@ reasons.forEach((reason, index) => {
 
         card.classList.add("revealed");
 
-       if (index === 21) {
+        if (index === 21) {
 
-```
-card.innerHTML = `
-    <h2>Reason #22</h2>
-    <br>
-    Because you're you.
-    <br><br>
-    That's it.
-    <br><br>
-    That's the reason.
-    <br><br>
-    Happy Birthday Asaaly ❤️
-`;
+            card.innerHTML = `
+                <h2>Reason #22</h2>
+                <br>
+                Because you're you.
+                <br><br>
+                That's it.
+                <br><br>
+                That's the reason.
+                <br><br>
+                Happy Birthday Asaaly ❤️
+            `;
 
-const finalButton =
-document.createElement("button");
+            if (!document.getElementById("finalButton")) {
 
-finalButton.innerHTML =
-"🎁 One Last Thing →";
+                const finalButton =
+                document.createElement("button");
 
-finalButton.onclick =
-showSecretEnding;
+                finalButton.id =
+                "finalButton";
 
-finalButton.style.marginTop =
-"20px";
+                finalButton.innerHTML =
+                "🎁 One Last Thing →";
 
-finalButton.style.width =
-"100%";
+                finalButton.onclick =
+                showSecretEnding;
 
-card.appendChild(finalButton);
-```
+                container.appendChild(finalButton);
 
-} else {
+            }
+
+        } else {
 
             card.innerHTML = reason;
 
@@ -212,44 +209,47 @@ card.appendChild(finalButton);
 
 function showSecretEnding() {
 
-const container = document.getElementById("scene-container");
+const container =
+document.getElementById("scene-container");
 
 if (!container) return;
 
 container.innerHTML = `
-    <section class="scene active photo-scene">
 
-        <img src="photos/IMG_coming_home_to_this.jpg">
+<section class="scene active photo-scene">
 
-        <h2>Psst... One Last Thing</h2>
+    <img src="photos/IMG_coming_home_to_this.jpg">
 
-        <p>
+    <h2>Psst... One Last Thing</h2>
 
-            Can't wait for you to have to come home to this every day.
+    <p>
 
-            <br><br>
+        Can't wait for you to have to come home to this every day.
 
-            You've been warned.
+        <br><br>
 
-            <br><br>
+        You've been warned.
 
-            Happy 22nd Birthday,
+        <br><br>
 
-            <br><br>
+        Happy 22nd Birthday,
 
-            my prettiest girl in the world.
+        <br><br>
 
-            <br><br>
+        my prettiest girl in the world.
 
-            Love,
+        <br><br>
 
-            <br><br>
+        Love,
 
-            Majd ❤️
+        <br><br>
 
-        </p>
+        Majd ❤️
 
-    </section>
+    </p>
+
+</section>
+
 `;
 
 }
