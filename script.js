@@ -2,6 +2,21 @@ let currentScene = 0;
 
 const scenes = document.querySelectorAll(".scene");
 
+const audio =
+document.getElementById("bgMusic");
+
+audio.volume = 0.25;
+function previousScene() {
+
+    if(currentScene === 0) return;
+
+    scenes[currentScene].classList.remove("active");
+
+    currentScene--;
+
+    scenes[currentScene].classList.add("active");
+
+}
 function nextScene() {
 
     scenes[currentScene].classList.remove("active");
@@ -98,13 +113,39 @@ function generateCards(){
 
             card.innerHTML = reason;
 
-            if(index === 21){
+        if(index === 21){
 
-                setTimeout(()=>{
-                    showSecretEnding();
-                },3000);
+    card.innerHTML = `
 
-            }
+    <h3>Reason #22</h3>
+
+    <br>
+
+    Because you're you.
+
+    <br><br>
+
+    That's it.
+
+    <br><br>
+
+    That's the reason.
+
+    <br><br>
+
+    Happy Birthday Asaaly ❤️
+
+    <br><br>
+
+    <button onclick="showSecretEnding()">
+
+        One Last Thing →
+
+    </button>
+
+    `;
+
+}
 
         });
 
@@ -113,7 +154,45 @@ function generateCards(){
     });
 
 }
+function startMusicAndContinue(){
 
+    audio.play();
+
+    document.getElementById("musicControls")
+    .style.display = "flex";
+
+    nextScene();
+
+}
+
+function toggleMusic(){
+
+    if(audio.paused){
+
+        audio.play();
+
+    }else{
+
+        audio.pause();
+
+    }
+
+}
+
+function volumeUp(){
+
+    audio.volume =
+    Math.min(audio.volume + 0.1,1);
+
+}
+
+function volumeDown(){
+
+    audio.volume =
+    Math.max(audio.volume - 0.1,0);
+
+}
+function showSecretEnding(){
 function showSecretEnding(){
 
     document.body.innerHTML = `
@@ -127,15 +206,26 @@ function showSecretEnding(){
         <p>
 
             Can't wait for you to have to come home to this every day.
+
             <br><br>
 
             You've been warned.
+
+            <br><br>
+
+            Love,
+
+            <br><br>
+
+            Majoody ❤️
+
             <br><br>
 
             End of story.
+
             <br><br>
 
-            For now. ❤️
+            For now.
 
         </p>
 
