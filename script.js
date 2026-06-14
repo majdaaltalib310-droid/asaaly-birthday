@@ -110,69 +110,70 @@ document.getElementById("cards-container");
 
 reasons.forEach((reason,index)=>{
 
-    const card =
-    document.createElement("div");
+const card =
+document.createElement("div");
 
-    card.classList.add("card");
+card.classList.add("card");
+
+if(index === 21){
+    card.classList.add("special-card");
+}
+
+card.innerHTML =
+`<strong>Reason #${index+1}</strong><br><br>Click to reveal`;
+
+card.addEventListener("click",()=>{
+
+    if(card.classList.contains("revealed"))
+        return;
+
+    card.classList.add("revealed");
 
     if(index === 21){
-        card.classList.add("special-card");
+
+        card.innerHTML = `
+
+        <h2>Reason #22</h2>
+
+        <br>
+
+        Because you're you.
+
+        <br><br>
+
+        That's it.
+
+        <br><br>
+
+        That's the reason.
+
+        <br><br>
+
+        Happy Birthday Asaaly ❤️
+
+        <br><br>
+
+        <button onclick="showSecretEnding()">
+
+            🎁 One Last Thing →
+
+        </button>
+
+        `;
+
+    }else{
+
+        card.innerHTML = reason;
+
     }
 
-    card.innerHTML =
-    `<strong>Reason #${index+1}</strong><br><br>Click to reveal`;
+});
 
-    card.addEventListener("click",()=>{
-
-        if(card.classList.contains("revealed"))
-            return;
-
-        card.classList.add("revealed");
-
-        if(index === 21){
-
-            card.innerHTML = `
-
-            <h2>Reason #22</h2>
-
-            <br>
-
-            Because you're you.
-
-            <br><br>
-
-            That's it.
-
-            <br><br>
-
-            That's the reason.
-
-            <br><br>
-
-            Happy Birthday Asaaly ❤️
-
-            <br><br>
-
-            <button onclick="showSecretEnding()">
-
-                🎁 One Last Thing →
-
-            </button>
-
-            `;
-
-        }else{
-
-            card.innerHTML = reason;
-
-        }
-
-    });
-
-    container.appendChild(card);
+container.appendChild(card);
 
 });
 }
+
 
 function startMusicAndContinue(){
 
@@ -223,7 +224,7 @@ Math.max(audio.volume - 0.1,0);
 
 function showSecretEnding(){
 
-    document.getElementById("scene-container").innerHTML = 
+    document.getElementById("scene-container").innerHTML = `
 
     <section class="scene active photo-scene">
 
