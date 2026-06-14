@@ -161,19 +161,21 @@ reasons.forEach((reason, index) => {
 
         card.classList.add("revealed");
 
-        if (index === 21) {
+ card.innerHTML = `
+<div style="width:100%; text-align:center;">
+    <h2>Reason #22</h2>
 
-            card.innerHTML = `
-                <h2>Reason #22</h2>
-                <br>
-                Because you're you.
-                <br><br>
-                That's it.
-                <br><br>
-                That's the reason.
-                <br><br>
-                Happy Birthday Asaaly ❤️
-            `;
+    <p>
+        Because you're you.
+        <br><br>
+        That's it.
+        <br><br>
+        That's the reason.
+        <br><br>
+        Happy Birthday Asaaly ❤️
+    </p>
+</div>
+`;
 
             if (!document.getElementById("finalButton")) {
 
