@@ -8,51 +8,239 @@
 </head>
 <body>
 
-<div class="hero">
+<div id="scene-container">
 
-    <div class="overlay"></div>
+    <!-- Scene 1 -->
+    <section class="scene active">
+        <h1>Hello my sexy girlfriend.</h1>
+        <p>Happy 22nd Birthday, Asaaly ❤️</p>
+        <button onclick="nextScene()">Next →</button>
+    </section>
 
-    <div class="hero-content">
-        <h2>FOR THE PRETTIEST GIRL IN THE WORLD</h2>
+    <!-- Scene 2 -->
+    <section class="scene">
+        <img class="gif" src="gifs/giphy.gif" alt="">
+        <h2>okay maybe I got a little distracted...</h2>
+        <button onclick="nextScene()">Next →</button>
+    </section>
 
-        <h1>Happy Birthday Asaaly</h1>
+    <!-- Scene 3 -->
+    <section class="scene">
+        <h1>Click only if you promise not to cry.</h1>
+        <button onclick="nextScene()">I Promise</button>
+    </section>
 
-        <p>June 13, 2004 • 22 Years of Perfection</p>
+    <!-- Scene 4 -->
+    <section class="scene">
+        <h2>Every good story deserves a soundtrack.</h2>
 
-        <button onclick="scrollToGallery()">
-            Begin The Story
-        </button>
-    </div>
+        <a class="spotify-btn"
+           href="PASTE_SPOTIFY_LINK_HERE"
+           target="_blank">
+           🎵 Start The Soundtrack
+        </a>
+
+        <br><br>
+
+        <button onclick="nextScene()">Continue →</button>
+    </section>
+
+    <!-- First Meeting -->
+    <section class="scene photo-scene">
+        <img src="photos/IMG_first_meeting.jpg">
+        <h2>Our First Meeting</h2>
+        <p>
+            You took this photo.<br><br>
+            I had absolutely no idea what was coming.<br><br>
+            If someone had told me that day that you'd become one of the most important people in my life...<br><br>
+            I would've laughed.
+        </p>
+        <button onclick="nextScene()">Continue →</button>
+    </section>
+
+    <!-- First Date -->
+    <section class="scene photo-scene">
+        <img src="photos/IMG_pretty_gf_beach_view.jpg">
+        <h2>First Date</h2>
+        <p>
+            This was the moment I realized I was in serious trouble.<br><br>
+            You looked way too pretty for me to be acting normal.
+        </p>
+        <button onclick="nextScene()">Continue →</button>
+    </section>
+
+    <!-- Princess Treatment -->
+    <section class="scene photo-scene">
+        <img src="photos/IMG_princess_treatment.jpg">
+        <h2>Princess Treatment</h2>
+        <p>
+            Tying your shoes wasn't in the boyfriend handbook.<br><br>
+            But honestly?<br><br>
+            I'd probably do it again.
+        </p>
+        <button onclick="nextScene()">Continue →</button>
+    </section>
+
+    <!-- Jetski -->
+    <section class="scene photo-scene">
+        <img src="photos/IMG_jetski_date.jpg">
+        <h2>Main Character Energy</h2>
+        <p>
+            We went on a jetski.<br><br>
+            Nobody died.<br><br>
+            Massive success.
+        </p>
+        <button onclick="nextScene()">Continue →</button>
+    </section>
+
+    <!-- Bollywood -->
+    <section class="scene photo-scene">
+        <img src="photos/IMG_indian_cringei.jpg">
+        <h2>Bollywood Era</h2>
+        <p>
+            We tried to take a romantic photo.<br><br>
+            We accidentally created a low-budget Indian drama poster.
+        </p>
+        <button onclick="nextScene()">Continue →</button>
+    </section>
+
+    <!-- Beach Initials -->
+    <section class="scene photo-scene">
+        <img src="photos/IMG_beach_initials.jpg">
+        <h2>Us</h2>
+        <p>
+            Some people write initials in the sand and the tide washes them away.<br><br>
+            Ours stayed with me.
+        </p>
+        <button onclick="nextScene()">Continue →</button>
+    </section>
+
+    <!-- Six Months -->
+    <section class="scene photo-scene">
+        <img src="photos/IMG_happy_six_months.jpg">
+        <h2>Six Months</h2>
+        <p>
+            One of my favorite photos of us.<br><br>
+            No posing.<br><br>
+            No trying.<br><br>
+            Just us.
+        </p>
+        <button onclick="nextScene()">Continue →</button>
+    </section>
+
+    <!-- Movie Scene -->
+    <section class="scene photo-scene">
+        <img src="photos/IMG_movie_scene_.jpg">
+        <h2>Movie Scene</h2>
+        <p>
+            This photo doesn't even look real.<br><br>
+            It looks like it belongs in a movie.
+        </p>
+        <button onclick="nextScene()">Continue →</button>
+    </section>
+
+    <!-- Romantic Moment -->
+    <section class="scene photo-scene">
+        <img src="photos/IMG_romantic_Moment.jpg">
+        <img src="photos/IMG_romantic_moment2.jpg">
+        <h2>My Favorite Scene</h2>
+        <p>
+            If I ever had to explain what being happy looks like...<br><br>
+            I'd probably just show these.
+        </p>
+        <button onclick="nextScene()">Continue →</button>
+    </section>
+
+    <!-- Cheek Kiss -->
+    <section class="scene photo-scene">
+        <img src="photos/IMG_cute_cheek_kiss.jpg">
+        <h2>You</h2>
+        <p>
+            Thank you for letting me love you.
+        </p>
+        <button onclick="nextScene()">Continue →</button>
+    </section>
+
+    <!-- Carrying -->
+    <section class="scene photo-scene">
+        <img src="photos/IMG_carrying_her.jpg">
+        <h2>Lightweight</h2>
+        <p>
+            This is where I'd make a joke about carrying the relationship.<br><br>
+            But we both know that's not true.
+        </p>
+        <button onclick="nextScene()">Continue →</button>
+    </section>
+
+    <!-- Sneaky -->
+    <section class="scene photo-scene">
+        <img src="photos/IMG_sneaky-picture.jpg">
+        <h2>Caught</h2>
+        <p>
+            You were trying to take a mirror selfie.<br><br>
+            I was busy admiring the view.
+        </p>
+        <button onclick="nextScene()">Continue →</button>
+    </section>
+
+    <!-- Favorite Place -->
+    <section class="scene photo-scene">
+        <img src="photos/IMG_time_together.jpg">
+        <h2>My Favorite Place</h2>
+        <p>
+            It was never the beach.<br>
+            Or the car.<br>
+            Or the restaurant.<br>
+            Or the date.<br><br>
+            It was you.
+        </p>
+        <button onclick="nextScene()">Continue →</button>
+    </section>
+
+    <!-- Birthday Message -->
+    <section class="scene">
+        <h1>Happy Birthday, Asaaly.</h1>
+
+        <p>
+            22 looks good on you.<br><br>
+
+            Thank you for every laugh.<br>
+            Every memory.<br>
+            Every late-night call.<br>
+            Every moment.<br><br>
+
+            I love you.<br><br>
+
+            — Majd ❤️
+        </p>
+
+        <button onclick="nextScene()">One More Thing →</button>
+    </section>
+
+    <!-- Birthday Queen -->
+    <section class="scene photo-scene">
+        <img src="photos/IMG_birthday_queen.jpg">
+
+        <h2>The Birthday Queen 👑</h2>
+
+        <p>
+            And of course...<br><br>
+            the birthday queen herself.<br><br>
+
+            Since you're turning 22,<br>
+            I wanted to tell you 22 reasons I love you.
+        </p>
+
+        <button onclick="nextScene()">Show Me →</button>
+    </section>
+
+    <!-- 22 Reasons Placeholder -->
+    <section class="scene">
+        <h1>22 Reasons I Love You ❤️</h1>
+        <div id="cards-container"></div>
+    </section>
 
 </div>
-
-<section id="gallery">
-
-    <h2>Our Story</h2>
-
-    <div class="gallery-grid">
-
-        <img src="photos/01.jpg">
-        <img src="photos/02.jpg">
-        <img src="photos/03.jpg">
-        <img src="photos/04.jpg">
-        <img src="photos/05.jpg">
-        <img src="photos/06.jpg">
-
-    </div>
-
-</section>
-
-<section class="message">
-
-    <h2>To Asaaly</h2>
-
-    <p>
-        Every great story has a main character.
-        Mine just happens to be you.
-    </p>
-
-</section>
 
 <script src="script.js"></script>
 
