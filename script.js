@@ -223,40 +223,44 @@ Math.max(audio.volume - 0.1,0);
 
 function showSecretEnding(){
 
-document.getElementById("scene-container").innerHTML = 
+document.getElementById("scene-container").innerHTML = `
 
 <section class="scene active photo-scene">
 
-    <img src="photos/IMG_coming_home_to_this.jpg">
+```
+<img src="photos/IMG_coming_home_to_this.jpg">
 
-    <h2>Psst... One Last Thing</h2>
+<h2>Psst... One Last Thing</h2>
 
-    <p>
+<p>
 
-        Can't wait for you to have to come home to this every day.
+    Can't wait for you to have to come home to this every day.
 
-        <br><br>
+    <br><br>
 
-        You've been warned.
+    You've been warned.
 
-        <br><br>
+    <br><br>
 
-        Happy 22nd Birthday,
+    Happy 22nd Birthday,
 
-        <br><br>
+    <br><br>
 
-        my prettiest girl in the world.
+    my prettiest girl in the world.
 
-        <br><br>
+    <br><br>
 
-        Love,
+    Love,
 
-        <br><br>
+    <br><br>
 
-        Majd ❤️
+    Majd ❤️
 
-     </p>
+ </p>
+```
 
 </section>
 
 `;
+
+}
