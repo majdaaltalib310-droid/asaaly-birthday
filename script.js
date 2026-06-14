@@ -116,87 +116,95 @@ let cardsGenerated = false;
 
 function generateCards(){
 
-    if(cardsGenerated) return;
+```
+if(cardsGenerated) return;
 
-    cardsGenerated = true;
+cardsGenerated = true;
 
-    const container =
-    document.getElementById("cards-container");
+const container =
+document.getElementById("cards-container");
 
-    reasons.forEach((reason,index)=>{
+reasons.forEach((reason,index)=>{
 
-        const card =
-        document.createElement("div");
+    const card =
+    document.createElement("div");
 
-        card.classList.add("card");
+    card.classList.add("card");
+
+    if(index === 21){
+        card.classList.add("special-card");
+    }
+
+    card.innerHTML =
+    `<strong>Reason #${index+1}</strong><br><br>Click to reveal`;
+
+    card.addEventListener("click",()=>{
+
+        if(card.classList.contains("revealed"))
+            return;
+
+        card.classList.add("revealed");
 
         if(index === 21){
-            card.classList.add("special-card");
-        }
 
-        card.innerHTML =
-        `<strong>Reason #${index+1}</strong><br><br>Click to reveal`;
+            card.style.gridColumn = "span 2";
 
-       card.addEventListener("click",()=>{
+            card.innerHTML = `
 
-    if(card.classList.contains("revealed"))
-    return;
+            <h2>Reason #22</h2>
 
-            card.classList.add("revealed");
+            <br>
+
+            Because you're you.
+
+            <br><br>
+
+            That's it.
+
+            <br><br>
+
+            That's the reason.
+
+            <br><br>
+
+            Happy Birthday Asaaly ❤️
+
+            `;
+
+            if(!document.getElementById("finalButton")){
+
+                const finalButton =
+                document.createElement("button");
+
+                finalButton.id = "finalButton";
+
+                finalButton.innerHTML =
+                "🎁 One Last Thing →";
+
+                finalButton.onclick =
+                showSecretEnding;
+
+                document
+                .getElementById("cards-container")
+                .appendChild(finalButton);
+
+            }
+
+        }else{
 
             card.innerHTML = reason;
 
-       if(index === 21){
-
-    card.style.gridColumn = "span 2";
-
-    card.innerHTML = `
-
-    <h2>Reason #22</h2>
-
-    <br>
-
-    Because you're you.
-
-    <br><br>
-
-    That's it.
-
-    <br><br>
-
-    That's the reason.
-
-    <br><br>
-
-    Happy Birthday Asaaly ❤️
-
-    `;
-
-    if(!document.getElementById("finalButton")){
-
-        const finalButton =
-        document.createElement("button");
-
-        finalButton.id = "finalButton";
-
-        finalButton.innerHTML =
-        "🎁 One Last Thing →";
-
-        finalButton.onclick =
-        showSecretEnding;
-
-        document
-        .getElementById("cards-container")
-        .appendChild(finalButton);
-
-    }
-
-}
-        container.appendChild(card);
+        }
 
     });
 
+    container.appendChild(card);
+
+});
+```
+
 }
+
 function startMusicAndContinue(){
 
     audio.play();
