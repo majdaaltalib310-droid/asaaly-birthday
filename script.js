@@ -10,7 +10,6 @@ audio.volume = 0.25;
 
 document.addEventListener("DOMContentLoaded",()=>{
 
-```
 const allScenes =
 document.querySelectorAll(".scene");
 
@@ -38,13 +37,11 @@ allScenes.forEach((scene,index)=>{
     }
 
 });
-```
 
 });
 
 function previousScene(){
 
-```
 if(currentScene === 0) return;
 
 scenes[currentScene].classList.remove("active");
@@ -52,13 +49,11 @@ scenes[currentScene].classList.remove("active");
 currentScene--;
 
 scenes[currentScene].classList.add("active");
-```
 
 }
 
 function nextScene(){
 
-```
 scenes[currentScene].classList.remove("active");
 
 currentScene++;
@@ -72,7 +67,6 @@ scenes[currentScene].classList.add("active");
 if(currentScene === scenes.length - 1){
     generateCards();
 }
-```
 
 }
 
@@ -107,7 +101,6 @@ let cardsGenerated = false;
 
 function generateCards(){
 
-```
 if(cardsGenerated) return;
 
 cardsGenerated = true;
@@ -179,13 +172,10 @@ reasons.forEach((reason,index)=>{
     container.appendChild(card);
 
 });
-```
-
 }
 
 function startMusicAndContinue(){
 
-```
 if(audio){
     audio.play();
 }
@@ -194,13 +184,11 @@ document.getElementById("musicControls")
 .style.display = "flex";
 
 nextScene();
-```
 
 }
 
 function toggleMusic(){
 
-```
 if(!audio) return;
 
 if(audio.paused){
@@ -212,36 +200,30 @@ if(audio.paused){
     audio.pause();
 
 }
-```
 
 }
 
 function volumeUp(){
 
-```
 if(!audio) return;
 
 audio.volume =
 Math.min(audio.volume + 0.1,1);
-```
 
 }
 
 function volumeDown(){
 
-```
 if(!audio) return;
 
 audio.volume =
 Math.max(audio.volume - 0.1,0);
-```
 
 }
 
 function showSecretEnding(){
 
-```
-document.getElementById("scene-container").innerHTML = `
+document.getElementById("scene-container").innerHTML = 
 
 <section class="scene active photo-scene">
 
@@ -273,11 +255,8 @@ document.getElementById("scene-container").innerHTML = `
 
         Majd ❤️
 
-    </p>
+     </p>
 
 </section>
 
 `;
-```
-
-}
