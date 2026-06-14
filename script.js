@@ -1,7 +1,37 @@
 let currentScene = 0;
 
 const scenes = document.querySelectorAll(".scene");
+document.addEventListener("DOMContentLoaded",()=>{
 
+    const allScenes =
+    document.querySelectorAll(".scene");
+
+    allScenes.forEach((scene,index)=>{
+
+        if(index === 0) return;
+
+        const backBtn =
+        document.createElement("button");
+
+        backBtn.innerHTML = "← Back";
+
+        backBtn.onclick = previousScene;
+
+        const firstButton =
+        scene.querySelector("button");
+
+        if(firstButton){
+
+            scene.insertBefore(
+                backBtn,
+                firstButton
+            );
+
+        }
+
+    });
+
+});
 const audio =
 document.getElementById("bgMusic");
 
@@ -107,7 +137,10 @@ function generateCards(){
         card.innerHTML =
         `<strong>Reason #${index+1}</strong><br><br>Click to reveal`;
 
-        card.addEventListener("click",()=>{
+       card.addEventListener("click",()=>{
+
+    if(card.classList.contains("revealed"))
+    return;
 
             card.classList.add("revealed");
 
