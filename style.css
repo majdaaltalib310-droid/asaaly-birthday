@@ -130,6 +130,10 @@ button:hover,
 
     transition:.4s;
 }
+.card.revealed{
+    font-size:1.3rem;
+    line-height:1.6;
+}
 
 .card:hover{
     transform:translateY(-5px);
@@ -144,6 +148,10 @@ button:hover,
     background:#d4af37;
     color:black;
     font-weight:bold;
+
+    grid-column:span 2;
+
+    min-height:350px;
 }
 
 #musicControls{
