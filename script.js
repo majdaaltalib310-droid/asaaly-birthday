@@ -178,19 +178,6 @@ if (index === 21) {
     </p>
 </div>
 `;
-    <h2>Reason #22</h2>
-
-    <p>
-        Because you're you.
-        <br><br>
-        That's it.
-        <br><br>
-        That's the reason.
-        <br><br>
-        Happy Birthday Asaaly ❤️
-    </p>
-</div>
-`;
 
             if (!document.getElementById("finalButton")) {
 
