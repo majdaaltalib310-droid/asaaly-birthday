@@ -1,3 +1,4 @@
+alert("SCRIPT LOADED");
 let currentScene = 0;
 
 const scenes = document.querySelectorAll(".scene");
@@ -270,7 +271,7 @@ document.getElementById("scene-container").innerHTML = `
 
         <br><br>
 
-        Majoody ❤️
+        Majd ❤️
 
     </p>
 
