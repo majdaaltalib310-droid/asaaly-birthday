@@ -163,25 +163,40 @@ reasons.forEach((reason, index) => {
 
         card.classList.add("revealed");
 
-        if (index === 21) {
+       if (index === 21) {
 
-            card.innerHTML = `
-                <h2>Reason #22</h2>
-                <br>
-                Because you're you.
-                <br><br>
-                That's it.
-                <br><br>
-                That's the reason.
-                <br><br>
-                Happy Birthday Asaaly ❤️
-                <br><br>
-                <button onclick="showSecretEnding()">
-                    🎁 One Last Thing →
-                </button>
-            `;
+```
+card.innerHTML = `
+    <h2>Reason #22</h2>
+    <br>
+    Because you're you.
+    <br><br>
+    That's it.
+    <br><br>
+    That's the reason.
+    <br><br>
+    Happy Birthday Asaaly ❤️
+`;
 
-        } else {
+const finalButton =
+document.createElement("button");
+
+finalButton.innerHTML =
+"🎁 One Last Thing →";
+
+finalButton.onclick =
+showSecretEnding;
+
+finalButton.style.marginTop =
+"20px";
+
+finalButton.style.width =
+"100%";
+
+card.appendChild(finalButton);
+```
+
+} else {
 
             card.innerHTML = reason;
 
