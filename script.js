@@ -226,7 +226,6 @@ function volumeDown(){
 
 }
 function showSecretEnding(){
-function showSecretEnding(){
 
     document.body.innerHTML = `
 
